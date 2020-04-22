@@ -551,7 +551,6 @@ multiple cursors editing.")
 (unless mc/keymap
   (setq mc/keymap (make-sparse-keymap))
   (define-key mc/keymap (kbd "C-g") 'mc/keyboard-quit)
-  (define-key mc/keymap (kbd "<return>") 'multiple-cursors-mode)
   (when (fboundp 'phi-search)
     (define-key mc/keymap (kbd "C-s") 'phi-search))
   (when (fboundp 'phi-search-backward)
