@@ -47,6 +47,10 @@
   "The face used for fake regions"
   :group 'multiple-cursors)
 
+(defface mc/cursor-insert-face
+  '((t :background "#f7d867" :foreground "#ffffff"))
+  "Insert face of multiple cursor" :group 'multiple-cursors)
+
 (defmacro mc/add-fake-cursor-to-undo-list (&rest forms)
   "Make sure point is in the right place when undoing"
   (let ((uc (make-symbol "undo-cleaner")))
@@ -120,7 +124,7 @@ it correct for the next round of commands."
   "Create overlay to look like cursor at end of line."
   (let ((overlay (make-overlay pos pos nil nil nil)))
     (if (mc/cursor-is-bar)
-	(overlay-put overlay 'before-string (propertize "|" 'face 'mc/cursor-bar-face))
+      	(overlay-put overlay 'before-string (propertize " " 'face 'mc/cursor-insert-face))
       (overlay-put overlay 'after-string (propertize " " 'face 'mc/cursor-face)))
     overlay))
 
@@ -128,7 +132,7 @@ it correct for the next round of commands."
   "Create overlay to look like cursor inside text."
   (let ((overlay (make-overlay pos (1+ pos) nil nil nil)))
     (if (mc/cursor-is-bar)
-	(overlay-put overlay 'before-string (propertize "|" 'face 'mc/cursor-bar-face))
+	(overlay-put overlay 'face 'mc/cursor-insert-face)
       (overlay-put overlay 'face 'mc/cursor-face))
     overlay))
 
