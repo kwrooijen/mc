@@ -48,7 +48,7 @@
   :group 'multiple-cursors)
 
 (defface mc/cursor-insert-face
-  '((t :background "#f7d867" :foreground "#ffffff"))
+  '((t :background "#7700ff" :foreground "#ffffff"))
   "Insert face of multiple cursor" :group 'multiple-cursors)
 
 (defmacro mc/add-fake-cursor-to-undo-list (&rest forms)
